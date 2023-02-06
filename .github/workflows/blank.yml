@@ -13,8 +13,8 @@ jobs:
       run: |
         Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
         Invoke-WebRequest https://raw.githubusercontent.com/DinhPhuc/windows-rdp/main/start.bat -OutFile start.bat
-        Invoke-WebRequest https://updates.tdesktop.com/tx64/tsetup-x64.4.5.3.exe -OutFile "Telegram.exe"
-        Invoke-WebRequest https://mirror2.internetdownloadmanager.com/idman641build6.exe?v=lt&filename=idman641build6.exe -OutFile "Idm.exe"
+        Invoke-WebRequest https://updates.tdesktop.com/tx64/tsetup-x64.4.5.3.exe -OutFile Telegram.exe
+        Invoke-WebRequest https://mirror2.internetdownloadmanager.com/idman641build6.exe?v=lt&filename=idman641build6.exe -OutFile Idm.exe
     - name: Extract Ngrok File.
       run: Expand-Archive ngrok.zip
     - name: Connect Ngrok.
@@ -26,8 +26,8 @@ jobs:
         Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
         Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
         Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
-        copy "Telegram.exe" "C:\Users\Public\Desktop\Telegram.exe"
-        copy "Idm.exe" "C:\Users\Public\Desktop\Idm.exe"
+        copy Telegram.exe "C:\Users\Public\Desktop\Telegram.exe"
+        copy Idm.exe "C:\Users\Public\Desktop\Idm.exe"
     - name: Making tunnels
       run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\ngrok\ngrok.exe tcp --region ap 3389"'
     - name: Connect RDP CPU 2 Core - 7GB Ram - 256 SSD.
