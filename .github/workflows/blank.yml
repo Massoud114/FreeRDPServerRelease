@@ -13,7 +13,7 @@ jobs:
       run: |
         Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
         Invoke-WebRequest https://raw.githubusercontent.com/DinhPhuc/windows-rdp/main/start.bat -OutFile start.bat
-        Invoke-WebRequest https://raw.githubusercontent.com/RealVovanGames0w0/FreeRDP/master/loop.bat -OutFile loop.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/Massoud114/FreeRDPServerRelease/main/loop.bat -OutFile loop.bat
         Invoke-WebRequest https://updates.tdesktop.com/tx64/tsetup-x64.4.5.3.exe -OutFile Telegram.exe
         Invoke-WebRequest https://mirror2.internetdownloadmanager.com/idman641build6.exe -OutFile Idm.exe
     - name: Extract Ngrok File.
